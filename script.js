@@ -3,62 +3,68 @@
    ═══════════════════════════════════════════════════════════ */
 
 const CONFIG = {
-  // 📅 Fecha y hora del examen.
-  // Formato: "AAAA-MM-DDTHH:MM:SS" (hora local de tu compu).
+  // 📅 Fecha y hora del examen. Formato: "AAAA-MM-DDTHH:MM:SS" (hora local).
   // Ejemplo: 8 de julio de 2026 a las 3:00 pm → "2026-07-08T15:00:00"
   examDate: "2026-07-08T15:00:00",
 
-  // ⏱️ Duración estimada del examen en horas (para el mensaje de "estás en pleno examen")
+  // Duración estimada del examen en horas
   examDurationHours: 3,
 
-  // 💛 Apodos que rotan en el título
-  nicknames: ["pequeña Ari", "niña nms", "Ariana", "futura aprobada"],
+  // Apodos que rotan en el título
+  nicknames: ["NIÑA", "PEQUEÑA ARI", "ARIANA", "FUTURA APROBADA"],
 
-  // ✨ Mensajes del botón de ánimo (se elige uno al azar)
-  boostMessages: [
-    "Respira. Ya sabes esto. 🌬️",
-    "Eres la persona más capaz que conozco 💪",
-    "El examen debería estar nervioso de conocerte a TI 😤",
-    "Un paso a la vez, pequeña Ari 🐾",
-    "Estudiar a la 1 am cuenta doble, es ciencia 🌙",
-    "Si el curso más difícil no pudo contigo antes, hoy menos ✨",
-    "Recuerda hidratarte, cerebrito hermoso 💧",
-    "Yo ya sé cómo termina esto: apruebas. Spoiler. 🎬",
-    "Confía en ti la mitad de lo que yo confío en ti 💛",
-    "Eres mi persona favorita y las personas favoritas aprueban 🏆",
+  // Estadísticas absurdas (num se anima al hacer scroll)
+  stats: [
+    { num: 99.9, suffix: "%", decimals: 1, label: "probabilidad de aprobar", note: "el 0.1% restante es por si cae un meteorito" },
+    { num: 47, suffix: "", decimals: 0, label: "crisis existenciales superadas este ciclo", note: "todas con éxito, cabe recalcar" },
+    { num: 100, suffix: "%", decimals: 0, label: "de exámenes sobrevividos hasta la fecha", note: "racha histórica impecable, revisen los archivos" },
+    { num: 0, suffix: "", decimals: 0, label: "excusas válidas para dudar de ti", note: "se buscó exhaustivamente. no se encontró ninguna" },
   ],
 
-  // 🏅 Razones por las que va a aprobar
-  reasons: [
-    { emoji: "📚", title: "Sobreviviste al curso más difícil", text: "Llegar al examen final de ESTE curso ya es una hazaña. Lo demás es solo el último jefe del videojuego." },
-    { emoji: "🧠", title: "Tu cerebro es otra cosa", text: "Te he visto entender cosas que el resto de los mortales ni intentamos. Hoy solo tienes que dejarlo trabajar." },
-    { emoji: "🌙", title: "Horas de estudio acumuladas", text: "Todas esas noches estudiando no se evaporan. Están ahí, listas para salir cuando las necesites." },
-    { emoji: "💪", title: "Nunca te rendiste", text: "Hubo mil momentos para tirar la toalla y no lo hiciste. Esa constancia vale más que cualquier apunte." },
-    { emoji: "🍀", title: "Tienes un fan de tiempo completo", text: "Yo. A toda hora. Enviándote buena vibra desde aquí como si me pagaran por ello." },
-    { emoji: "👑", title: "Eres la niña nms", text: "Y la niña nms no pierde. Punto. Es ley universal." },
+  // Respuestas del botón de pánico (en orden, van escalando)
+  panicResponses: [
+    "Respira hondo. Ya. Eso era todo, en serio.",
+    "¿Otra vez? A ver: tú estudiaste, el pánico no. Ganas por experiencia.",
+    "Diagnóstico oficial: nervios normales de persona que sí va a aprobar.",
+    "El examen debería estar apretando su propio botón de pánico ahora mismo.",
+    "Nivel de drama detectado: elevado. Nivel de preparación: más elevado todavía.",
+    "Ya van varias. ¿Quieres que llame a alguien? ¿Al 911 de los exagerados?",
+    "Dato científico: nadie que aprieta un botón tantas veces reprueba. Búscalo.",
+    "El botón solicita un descanso. Tú también. Respira y ve a ganar.",
+    "El botón está considerando cobrarte por sesión. Acepta yape.",
+  ],
+
+  // Predicciones del tarot (aleatorias, todas terminan igual porque el destino es terco)
+  tarotPredictions: [
+    "Las cartas dicen: apruebas. Las cartas nunca mienten, está en su contrato.",
+    "Veo un aula... veo tu nombre... veo una nota más alta de lo que crees. Siempre veo lo mismo, qué aburrido.",
+    "Mercurio está retrógrado, pero eso no aplica a la gente que estudió.",
+    "Los astros convocaron reunión de emergencia y votaron por unanimidad: pasas.",
+    "Veo a una persona celebrando esta noche. Se parece sospechosamente a ti.",
+    "El destino dice que apruebas. Yo digo lo mismo. Doble confirmación, cero apelaciones.",
+    "Tu carta es La Estrella, que significa 'deja de dudar y entra al examen de una vez'.",
+    "Consulté tres barajas distintas. Las tres se aburrieron de repetir lo mismo: apruebas.",
+  ],
+
+  // Pensamientos intrusivos del minijuego
+  doubts: [
+    "¿y si me quedo en blanco?",
+    "¿y si no estudié suficiente?",
+    "todos saben más que yo",
+    "¿y si toman justo lo que no repasé?",
+    "seguro repruebo",
+    "¿por qué elegí esta carrera?",
+    "no me acuerdo de nada",
+    "¿y si leo mal la pregunta?",
+    "¿y si me da sueño a la mitad?",
   ],
 };
 
 /* ═══════════════════════════════════════════════════════════
-   A partir de aquí no hace falta tocar nada 🙂
+   A partir de aquí no hace falta tocar nada :)
    ═══════════════════════════════════════════════════════════ */
 
-// ── Corazones flotantes de fondo ──
-(function buildSky() {
-  const sky = document.getElementById("sky");
-  const symbols = ["💛", "🌸", "⭐", "🤍", "🌷", "✨"];
-  const COUNT = 18;
-  for (let i = 0; i < COUNT; i++) {
-    const el = document.createElement("span");
-    el.className = "floaty";
-    el.textContent = symbols[i % symbols.length];
-    el.style.left = Math.random() * 100 + "vw";
-    el.style.fontSize = 0.8 + Math.random() * 1.6 + "rem";
-    el.style.animationDuration = 14 + Math.random() * 18 + "s";
-    el.style.animationDelay = -Math.random() * 30 + "s";
-    sky.appendChild(el);
-  }
-})();
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // ── Rotación de apodos ──
 (function rotateNicknames() {
@@ -70,8 +76,8 @@ const CONFIG = {
       i = (i + 1) % CONFIG.nicknames.length;
       el.textContent = CONFIG.nicknames[i];
       el.classList.remove("swapping");
-    }, 400);
-  }, 3800);
+    }, 300);
+  }, 3200);
 })();
 
 // ── Cuenta regresiva ──
@@ -89,90 +95,218 @@ const CONFIG = {
 
   function tick() {
     const now = Date.now();
-
     if (now < exam) {
       const diff = exam - now;
       $h.textContent = pad(Math.floor(diff / 3600000));
       $m.textContent = pad(Math.floor((diff % 3600000) / 60000));
       $s.textContent = pad(Math.floor((diff % 60000) / 1000));
-      $tag.textContent = "falta poquito para tu examen";
-      $note.textContent = "y cada segundo que pasa estás más lista 🌷";
+      $tag.textContent = "CUENTA REGRESIVA OFICIAL";
+      $note.textContent = "tiempo restante para demostrar lo que ya sabes";
     } else if (now < examEnd) {
       $wrap.classList.add("done");
-      $h.textContent = "TÚ";
-      $m.textContent = "PUE";
-      $s.textContent = "DES";
-      $tag.textContent = "¡estás en pleno examen! 🔥";
-      $note.textContent = "respira, lee con calma, y confía. Aquí te espero 💛";
+      $h.textContent = "EN";
+      $m.textContent = "CUR";
+      $s.textContent = "SO";
+      $tag.textContent = "EXAMEN EN CURSO";
+      $note.textContent = "silencio por favor, hay una futura aprobada trabajando";
     } else {
       $wrap.classList.add("done");
-      $h.textContent = "LO";
-      $m.textContent = "LOGRA";
-      $s.textContent = "STE";
-      $tag.textContent = "¡se acabó! 🎉";
-      $note.textContent = "sea cual sea el resultado, estoy orgullosísimo de ti 🥹";
-      if (!celebrated) { celebrated = true; launchConfetti(140); }
+      $h.textContent = "SOBRE";
+      $m.textContent = "VI";
+      $s.textContent = "VIÓ";
+      $tag.textContent = "OPERACIÓN COMPLETADA";
+      $note.textContent = "sea cual sea el resultado, el comité está orgulloso. y el comité soy yo";
+      if (!celebrated) { celebrated = true; launchConfetti(160); }
     }
   }
   tick();
   setInterval(tick, 1000);
 })();
 
-// ── Botón de ánimo ──
-(function boostButton() {
-  const btn = document.getElementById("boostBtn");
-  const msg = document.getElementById("boostMsg");
-  const count = document.getElementById("boostCount");
-  let clicks = 0;
-  let lastIndex = -1;
-
-  btn.addEventListener("click", () => {
-    clicks++;
-    let i;
-    do { i = Math.floor(Math.random() * CONFIG.boostMessages.length); }
-    while (i === lastIndex && CONFIG.boostMessages.length > 1);
-    lastIndex = i;
-
-    msg.classList.remove("show");
-    setTimeout(() => {
-      msg.textContent = CONFIG.boostMessages[i];
-      msg.classList.add("show");
-    }, 150);
-
-    if (clicks >= 20)      count.textContent = `${clicks} ánimos enviados… ok, ya vete a dar ese examen 😂💛`;
-    else if (clicks >= 5)  count.textContent = `${clicks} ánimos enviados (ilimitados, no te preocupes)`;
-    else if (clicks > 1)   count.textContent = `${clicks} ánimos enviados`;
-
-    launchConfetti(40);
-  });
-})();
-
-// ── Razones (tarjetas) ──
-(function buildReasons() {
-  const grid = document.getElementById("reasonsGrid");
-  CONFIG.reasons.forEach((r) => {
+// ── Estadísticas con contadores animados ──
+(function buildStats() {
+  const grid = document.getElementById("statsGrid");
+  CONFIG.stats.forEach((s) => {
     const card = document.createElement("article");
-    card.className = "reason-card";
+    card.className = "stat-card";
     card.innerHTML =
-      `<span class="reason-emoji">${r.emoji}</span>` +
-      `<h3 class="reason-title">${r.title}</h3>` +
-      `<p class="reason-text">${r.text}</p>`;
+      `<div class="stat-num" data-target="${s.num}" data-suffix="${s.suffix}" data-decimals="${s.decimals}">0${s.suffix}</div>` +
+      `<div class="stat-label">${s.label}</div>` +
+      `<div class="stat-note">${s.note}</div>`;
     grid.appendChild(card);
   });
 
+  function animateNum(el) {
+    const target = parseFloat(el.dataset.target);
+    const suffix = el.dataset.suffix;
+    const decimals = parseInt(el.dataset.decimals, 10);
+    if (reducedMotion || target === 0) {
+      el.textContent = target.toFixed(decimals) + suffix;
+      return;
+    }
+    const dur = 1200;
+    const start = performance.now();
+    function step(t) {
+      const p = Math.min((t - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toFixed(decimals) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
   const observer = new IntersectionObserver(
-    (entries) => entries.forEach((e, idx) => {
+    (entries) => entries.forEach((e) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add("visible"), (idx % 3) * 120);
+        e.target.classList.add("visible");
+        animateNum(e.target.querySelector(".stat-num"));
         observer.unobserve(e.target);
       }
     }),
-    { threshold: 0.2 }
+    { threshold: 0.35 }
   );
-  document.querySelectorAll(".reason-card").forEach((c) => observer.observe(c));
+  document.querySelectorAll(".stat-card").forEach((c) => observer.observe(c));
 })();
 
-// ── Confeti de corazones ──
+// ── Botón de pánico ──
+(function panicButton() {
+  const btn = document.getElementById("panicBtn");
+  const msg = document.getElementById("panicMsg");
+  const meta = document.getElementById("panicMeta");
+  let presses = 0;
+
+  btn.addEventListener("click", () => {
+    const responses = CONFIG.panicResponses;
+    const i = Math.min(presses, responses.length - 1);
+    presses++;
+
+    if (!reducedMotion) {
+      document.body.classList.remove("shake");
+      void document.body.offsetWidth; // reinicia la animación
+      document.body.classList.add("shake");
+    }
+
+    msg.classList.remove("show");
+    setTimeout(() => {
+      msg.textContent = responses[i];
+      msg.classList.add("show");
+    }, 120);
+
+    meta.textContent =
+      presses === 1 ? "INCIDENTE REGISTRADO: 1"
+      : presses < 5 ? `INCIDENTES REGISTRADOS: ${presses}`
+      : `INCIDENTES REGISTRADOS: ${presses} · EL SISTEMA ESTÁ JUZGÁNDOTE (CON CARIÑO)`;
+  });
+})();
+
+// ── Tarot académico ──
+(function tarot() {
+  const card = document.getElementById("tarotCard");
+  const inner = document.getElementById("tarotInner");
+  const text = document.getElementById("tarotText");
+  let flipped = false;
+  let lastIndex = -1;
+  let busy = false;
+
+  function consult() {
+    if (busy) return;
+    busy = true;
+    if (!flipped) {
+      let i;
+      do { i = Math.floor(Math.random() * CONFIG.tarotPredictions.length); }
+      while (i === lastIndex && CONFIG.tarotPredictions.length > 1);
+      lastIndex = i;
+      text.textContent = CONFIG.tarotPredictions[i];
+      inner.classList.add("flipped");
+      flipped = true;
+      setTimeout(() => (busy = false), 700);
+    } else {
+      inner.classList.remove("flipped");
+      flipped = false;
+      setTimeout(() => (busy = false), 700);
+    }
+  }
+
+  card.addEventListener("click", consult);
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); consult(); }
+  });
+})();
+
+// ── Minijuego: aplasta tus dudas ──
+(function doubtGame() {
+  const area = document.getElementById("gameArea");
+  const scoreEl = document.getElementById("gameScore");
+  const msgEl = document.getElementById("gameMsg");
+  const toggle = document.getElementById("gameToggle");
+  const placeholder = document.getElementById("gamePlaceholder");
+  let running = false;
+  let score = 0;
+  let spawner = null;
+  const MAX_ON_SCREEN = 5;
+
+  const milestones = {
+    5: "5 dudas menos. Vas mejor aplastando dudas que ellas asustándote.",
+    10: "10 dudas destruidas. Oficialmente ya no te queda ninguna excusa.",
+    15: "Ok, para. Guarda esa energía para el examen.",
+    25: "Esto ya es ensañamiento. Las dudas piden clemencia.",
+  };
+
+  function spawnDoubt() {
+    if (!running) return;
+    if (area.querySelectorAll(".doubt:not(.popped)").length >= MAX_ON_SCREEN) return;
+
+    const el = document.createElement("button");
+    el.className = "doubt";
+    el.type = "button";
+    el.textContent = CONFIG.doubts[Math.floor(Math.random() * CONFIG.doubts.length)];
+    area.appendChild(el);
+
+    // posición aleatoria dentro del área (se mide después de insertar)
+    const aw = area.clientWidth, ah = area.clientHeight;
+    const ew = el.offsetWidth, eh = el.offsetHeight;
+    el.style.left = Math.random() * Math.max(aw - ew - 12, 1) + 6 + "px";
+    el.style.top = Math.random() * Math.max(ah - eh - 12, 1) + 6 + "px";
+
+    const pop = (e) => {
+      e.preventDefault();
+      if (el.classList.contains("popped")) return;
+      el.classList.add("popped");
+      score++;
+      scoreEl.textContent = score;
+      if (milestones[score]) {
+        msgEl.textContent = milestones[score];
+        launchConfetti(score >= 15 ? 80 : 40);
+      }
+      setTimeout(() => el.remove(), 350);
+    };
+    el.addEventListener("pointerdown", pop);
+
+    // si nadie la toca, se va sola (las dudas también se aburren)
+    setTimeout(() => {
+      if (el.isConnected && !el.classList.contains("popped")) {
+        el.classList.add("popped");
+        setTimeout(() => el.remove(), 350);
+      }
+    }, 6000);
+  }
+
+  toggle.addEventListener("click", () => {
+    running = !running;
+    if (running) {
+      toggle.textContent = "PAUSAR";
+      placeholder.style.display = "none";
+      msgEl.textContent = " ";
+      spawnDoubt();
+      spawner = setInterval(spawnDoubt, 900);
+    } else {
+      toggle.textContent = "SEGUIR";
+      clearInterval(spawner);
+    }
+  });
+})();
+
+// ── Confeti ──
 const confetti = (function () {
   const canvas = document.getElementById("confettiCanvas");
   const ctx = canvas.getContext("2d");
@@ -186,33 +320,23 @@ const confetti = (function () {
   window.addEventListener("resize", resize);
   resize();
 
-  const COLORS = ["#e8798f", "#f5b942", "#ffb8c6", "#f0946b", "#ffdfc4"];
-  const SHAPES = ["heart", "circle", "star"];
+  const COLORS = ["#ff5c2e", "#0fa3a3", "#ffd23f", "#1c1a17"];
 
   function spawn(n) {
     for (let i = 0; i < n; i++) {
       pieces.push({
         x: Math.random() * canvas.width,
         y: -20 - Math.random() * canvas.height * 0.3,
-        size: 6 + Math.random() * 10,
+        w: 5 + Math.random() * 7,
+        h: 8 + Math.random() * 8,
         color: COLORS[Math.floor(Math.random() * COLORS.length)],
-        shape: SHAPES[Math.floor(Math.random() * SHAPES.length)],
-        vy: 1.5 + Math.random() * 2.5,
-        vx: -1 + Math.random() * 2,
+        vy: 2 + Math.random() * 3,
+        vx: -1.2 + Math.random() * 2.4,
         rot: Math.random() * Math.PI * 2,
-        vr: -0.08 + Math.random() * 0.16,
+        vr: -0.12 + Math.random() * 0.24,
       });
     }
     if (!running) { running = true; requestAnimationFrame(loop); }
-  }
-
-  function drawHeart(p) {
-    const s = p.size / 2;
-    ctx.beginPath();
-    ctx.moveTo(0, s * 0.6);
-    ctx.bezierCurveTo(-s, -s * 0.4, -s * 0.4, -s, 0, -s * 0.3);
-    ctx.bezierCurveTo(s * 0.4, -s, s, -s * 0.4, 0, s * 0.6);
-    ctx.fill();
   }
 
   function loop() {
@@ -220,22 +344,13 @@ const confetti = (function () {
     pieces = pieces.filter((p) => p.y < canvas.height + 30);
     pieces.forEach((p) => {
       p.y += p.vy;
-      p.x += p.vx + Math.sin(p.y * 0.01) * 0.6;
+      p.x += p.vx + Math.sin(p.y * 0.02) * 0.8;
       p.rot += p.vr;
       ctx.save();
       ctx.translate(p.x, p.y);
       ctx.rotate(p.rot);
       ctx.fillStyle = p.color;
-      if (p.shape === "heart") {
-        drawHeart(p);
-      } else if (p.shape === "star") {
-        ctx.font = p.size + "px serif";
-        ctx.fillText("✦", -p.size / 2, p.size / 2);
-      } else {
-        ctx.beginPath();
-        ctx.arc(0, 0, p.size / 2.4, 0, Math.PI * 2);
-        ctx.fill();
-      }
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
       ctx.restore();
     });
     if (pieces.length > 0) requestAnimationFrame(loop);
@@ -246,6 +361,6 @@ const confetti = (function () {
 })();
 
 function launchConfetti(n) {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (reducedMotion) return;
   confetti.spawn(n);
 }
