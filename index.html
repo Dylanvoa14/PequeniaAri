@@ -3,40 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para la pequeña Ari</title>
-  <meta name="description" content="Una paginita de apoyo para Ariana antes de su examen final." />
+  <title>Comunicado Oficial: hoy aprueba la niña</title>
+  <meta name="description" content="El Comité Internacional de Apoyo a Ariana emite su comunicado más importante del año." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Caveat:wght@400..700&family=Quicksand:wght@400..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Space+Mono:wght@400;700&family=Gochi+Hand&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💛</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📢</text></svg>" />
 </head>
 <body>
 
-  <!-- Corazones y estrellas flotando de fondo -->
-  <div class="sky" aria-hidden="true" id="sky"></div>
-  <div class="grain" aria-hidden="true"></div>
+  <!-- ══════════ CINTILLO DE ÚLTIMA HORA ══════════ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>ÚLTIMA HORA ★ ARIANA RINDE HOY SU EXAMEN FINAL ★ EXPERTOS CONFIRMAN: ESTÁ LISTA ★ EL PÁNICO PIERDE 3 A 0 ★ FUENTES CERCANAS (DYLAN) ASEGURAN QUE APRUEBA ★&nbsp;</span>
+      <span>ÚLTIMA HORA ★ ARIANA RINDE HOY SU EXAMEN FINAL ★ EXPERTOS CONFIRMAN: ESTÁ LISTA ★ EL PÁNICO PIERDE 3 A 0 ★ FUENTES CERCANAS (DYLAN) ASEGURAN QUE APRUEBA ★&nbsp;</span>
+    </div>
+  </div>
 
-  <!-- ══════════ HERO ══════════ -->
+  <!-- ══════════ COMUNICADO / HERO ══════════ -->
   <header class="hero">
-    <p class="hero-eyebrow">una paginita hecha con aprecio para</p>
-    <h1 class="hero-name">
-      <span class="nickname" id="nickname">Ariana</span>
+    <p class="hero-stamp">COMUNICADO OFICIAL N.º 001</p>
+    <p class="hero-eyebrow">El Comité Internacional de Apoyo a Ariana informa:</p>
+    <h1 class="hero-title">
+      HOY, LA<br />
+      <span class="nickname-wrap"><span class="nickname" id="nickname">NIÑA</span></span><br />
+      APRUEBA.
     </h1>
     <p class="hero-sub">
-      Hoy es el día, <em>niña</em>. Llevas tiempo dándolo todo (mentira recién estudias desde ayer)
-      y esta página existe para recordarte una sola cosa:
+      Esto no es una opinión. Es un comunicado con membrete y todo.
+      Desplázate para revisar la evidencia. <span class="deco">↓</span>
     </p>
-    <p class="hero-big" id="heroBig">vas a aprobar!</p>
-    <div class="scroll-hint" aria-hidden="true">⌄</div>
   </header>
 
   <!-- ══════════ CONTADOR ══════════ -->
-  <section class="countdown-section" aria-label="Cuenta regresiva">
-    <div class="ticket">
-      <div class="ticket-header">
-        <span class="ticket-tag" id="countdownTag">falta poquito para tu examen</span>
-      </div>
+  <section class="section" aria-label="Cuenta regresiva">
+    <div class="card ticket" data-tilt="-1.2">
+      <span class="card-label" id="countdownTag">CUENTA REGRESIVA OFICIAL</span>
       <div class="countdown" id="countdown">
         <div class="unit"><span class="num" id="cdH">--</span><span class="lbl">horas</span></div>
         <div class="sep">:</div>
@@ -44,30 +47,78 @@
         <div class="sep">:</div>
         <div class="unit"><span class="num" id="cdS">--</span><span class="lbl">seg</span></div>
       </div>
-      <p class="ticket-note" id="countdownNote">y cada vez vas a estar más lista</p>
+      <p class="card-note" id="countdownNote">tiempo restante para demostrar lo que ya sabes</p>
     </div>
   </section>
 
-  <!-- ══════════ BOTÓN DE ÁNIMO ══════════ -->
-  <section class="boost-section" aria-label="Botón de ánimo">
-    <h2 class="section-title">¿Nervios? Aprieta aquí 👇</h2>
-    <button class="boost-btn" id="boostBtn">
-      <span class="boost-heart">💛</span>
-      <span>dame ánimo</span>
-    </button>
-    <p class="boost-msg" id="boostMsg">&nbsp;</p>
-    <p class="boost-count" id="boostCount"></p>
+  <!-- ══════════ ESTADÍSTICAS ══════════ -->
+  <section class="section" aria-label="Estadísticas">
+    <h2 class="section-title">Los datos no mienten <span class="scribble">(estos sí, pero poquito)</span></h2>
+    <div class="stats-grid" id="statsGrid"></div>
   </section>
 
-  <!-- ══════════ RAZONES ══════════ -->
-  <section class="reasons-section" aria-label="Razones">
-    <h2 class="section-title">Razones por las que vas a aprobar<br /><span class="title-accent">(evidencia científica irrefutable)</span></h2>
-    <div class="reasons-grid" id="reasonsGrid"></div>
+  <!-- ══════════ BOTÓN DE PÁNICO ══════════ -->
+  <section class="section center" aria-label="Botón de pánico">
+    <h2 class="section-title">¿Pánico? Hay un protocolo para eso</h2>
+    <button class="panic-btn" id="panicBtn">BOTÓN DE PÁNICO</button>
+    <p class="panic-msg" id="panicMsg">&nbsp;</p>
+    <p class="panic-meta" id="panicMeta"></p>
   </section>
 
+  <!-- ══════════ TAROT ACADÉMICO ══════════ -->
+  <section class="section center" aria-label="Tarot académico">
+    <h2 class="section-title">Tarot académico certificado <span class="scribble">(certificado por Dylan)</span></h2>
+    <div class="tarot-card" id="tarotCard" role="button" tabindex="0" aria-label="Voltear carta del tarot">
+      <div class="tarot-inner" id="tarotInner">
+        <div class="tarot-face tarot-front">
+          <span class="tarot-star">✦</span>
+          <p>TOCA PARA<br />CONSULTAR<br />TU DESTINO</p>
+          <span class="tarot-star">✦</span>
+        </div>
+        <div class="tarot-face tarot-back">
+          <p id="tarotText">…</p>
+        </div>
+      </div>
+    </div>
+    <p class="tarot-hint">resultados 100% imparciales, obviamente</p>
+  </section>
+
+  <!-- ══════════ MINIJUEGO ══════════ -->
+  <section class="section center" aria-label="Minijuego">
+    <h2 class="section-title">Aplasta tus dudas <span class="scribble">(literalmente)</span></h2>
+    <p class="game-intro">Estos son los pensamientos intrusivos de hoy. Tócalos y desaparecen. Ojalá la vida real funcionara igual.</p>
+    <div class="game-hud">
+      <span>dudas destruidas: <strong id="gameScore">0</strong></span>
+      <button class="game-toggle" id="gameToggle">EMPEZAR</button>
+    </div>
+    <div class="game-area" id="gameArea">
+      <p class="game-placeholder" id="gamePlaceholder">zona de demolición de dudas</p>
+    </div>
+    <p class="game-msg" id="gameMsg">&nbsp;</p>
+  </section>
+
+  <!-- ══════════ CARTA ══════════ -->
+  <section class="section" aria-label="Carta">
+    <div class="card letter" data-tilt="0.8">
+      <span class="card-label">ANEXO ÚNICO · MENSAJE NO SATÍRICO (BUENO, CASI)</span>
+      <p class="letter-greeting">Niña:</p>
+      <p>
+        No te voy a decir "tú puedes" porque ya lo sabes y porque me da cringe.
+        Te voy a decir lo que veo: sobreviviste al curso que hace llorar gente
+        adulta y funcional, con todas tus crisis incluidas, y sigues aquí.
+        Eso no es suerte. Es historial.
+      </p>
+      <p>
+        Entra, lee con calma, responde como sabes, y sal con la frente en alto.
+        Y después me cuentas absolutamente todo con lujo de detalle dramático,
+        como siempre.
+      </p>
+      <p class="letter-sign">— Dylan</p>
+    </div>
+  </section>
 
   <footer class="footer">
-    <p>hecha a la 1 a.m., diría que con mucho cariño pero tengo más sueño que cariño</p>
+    <p>emitido por Dylan a la 1 a.m. · cualquier parecido con propaganda oficial es completamente intencional</p>
   </footer>
 
   <canvas id="confettiCanvas" aria-hidden="true"></canvas>
