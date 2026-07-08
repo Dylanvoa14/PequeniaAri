@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para la pequeña Ari 💛</title>
+  <meta name="description" content="Una paginita de apoyo para Ariana antes de su examen final." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Caveat:wght@400..700&family=Quicksand:wght@400..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💛</text></svg>" />
+</head>
+<body>
+
+  <!-- Corazones y estrellas flotando de fondo -->
+  <div class="sky" aria-hidden="true" id="sky"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ══════════ HERO ══════════ -->
+  <header class="hero">
+    <p class="hero-eyebrow">una paginita hecha con cariño para</p>
+    <h1 class="hero-name">
+      <span class="nickname" id="nickname">pequeña Ari</span>
+    </h1>
+    <p class="hero-sub">
+      Hoy es el día, <em>niña nms</em>. Llevas semanas dándolo todo
+      y esta página existe para recordarte una sola cosa:
+    </p>
+    <p class="hero-big" id="heroBig">vas a estar increíble ✨</p>
+    <div class="scroll-hint" aria-hidden="true">⌄</div>
+  </header>
+
+  <!-- ══════════ CONTADOR ══════════ -->
+  <section class="countdown-section" aria-label="Cuenta regresiva">
+    <div class="ticket">
+      <div class="ticket-header">
+        <span class="ticket-tag" id="countdownTag">falta poquito para tu examen</span>
+      </div>
+      <div class="countdown" id="countdown">
+        <div class="unit"><span class="num" id="cdH">--</span><span class="lbl">horas</span></div>
+        <div class="sep">:</div>
+        <div class="unit"><span class="num" id="cdM">--</span><span class="lbl">min</span></div>
+        <div class="sep">:</div>
+        <div class="unit"><span class="num" id="cdS">--</span><span class="lbl">seg</span></div>
+      </div>
+      <p class="ticket-note" id="countdownNote">y cada segundo que pasa estás más lista 🌷</p>
+    </div>
+  </section>
+
+  <!-- ══════════ BOTÓN DE ÁNIMO ══════════ -->
+  <section class="boost-section" aria-label="Botón de ánimo">
+    <h2 class="section-title">¿Nervios? Aprieta aquí 👇</h2>
+    <button class="boost-btn" id="boostBtn">
+      <span class="boost-heart">💛</span>
+      <span>dame ánimo</span>
+    </button>
+    <p class="boost-msg" id="boostMsg">&nbsp;</p>
+    <p class="boost-count" id="boostCount"></p>
+  </section>
+
+  <!-- ══════════ RAZONES ══════════ -->
+  <section class="reasons-section" aria-label="Razones">
+    <h2 class="section-title">Razones por las que vas a aprobar<br /><span class="title-accent">(evidencia científica irrefutable)</span></h2>
+    <div class="reasons-grid" id="reasonsGrid"></div>
+  </section>
+
+  <!-- ══════════ CARTA ══════════ -->
+  <section class="letter-section" aria-label="Carta">
+    <div class="letter">
+      <p class="letter-greeting">Pequeña Ari:</p>
+      <p>
+        Sé que este curso fue el más difícil de todos, y también sé cuánto te ha
+        costado llegar hasta aquí. Te he visto estudiar cuando estabas cansada,
+        seguir cuando querías rendirte, y aun así encontrar tiempo para ser la
+        persona más linda del mundo.
+      </p>
+      <p>
+        Hoy solo tienes que hacer lo que ya sabes hacer. No necesitas suerte
+        — necesitas confiar en ti la mitad de lo que yo confío en ti, y con eso sobra.
+      </p>
+      <p class="letter-sign">Con todo el cariño,<br /><span>Aarón 💛</span></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>hecha a la 1 a.m. con mucho amor · tú puedes, niña nms 🌙</p>
+  </footer>
+
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
